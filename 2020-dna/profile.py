@@ -30,6 +30,7 @@ def analyze_dna(data_path, sequence_path):
             occurrences[i] = len(longest_match)//len(pattern)
         else:
             occurrences[i] = 0
+    
 
     for row_idx, row in enumerate(data[1:]):
         match = True
@@ -40,8 +41,8 @@ def analyze_dna(data_path, sequence_path):
         
         if match:
             return data[row_idx+1][0]
-        else:
-            return "no match"
+    
+    return "no match"
 
 if __name__ == '__main__':
     result = analyze_dna(sys.argv[1], sys.argv[2])
