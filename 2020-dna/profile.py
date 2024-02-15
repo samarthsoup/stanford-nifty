@@ -31,7 +31,6 @@ def analyze_dna(data_path, sequence_path):
         else:
             occurrences[i] = 0
 
-    results = []
     for row_idx, row in enumerate(data[1:]):
         match = True
         for col_idx in range(1, len(row)):
@@ -40,10 +39,10 @@ def analyze_dna(data_path, sequence_path):
                 break
         
         if match:
-            results.append(data[row_idx+1][0])
-    return results
+            return data[row_idx+1][0]
+        else:
+            return "no match"
 
 if __name__ == '__main__':
-    result_names = analyze_dna(sys.argv[1], sys.argv[2])
-    for name in result_names:
-        print(name)
+    result = analyze_dna(sys.argv[1], sys.argv[2])
+    print(result)
